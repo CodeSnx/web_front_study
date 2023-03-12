@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			body{
+				margin: 20px
+			}
+			/* 交集选择器 */
+			div.red{
+				color: red;
+			}
+			/* 并集选择器 */
+			span,h1{
+				color: beige;
+			}
+			/* 后代选择器 */
+			div span{
+				color: bisque;
+			}
+			/* 子元素选择器 */
+			.nav>span{
+				font-size: 20px;
+			}
+			
+			/* 属性选择器 */
+			span[title]{
+				font-weight: 700;
+			}
+			span[title="span1"]{
+				text-decoration: underline;
+			}
+			/* 以span开头 */
+			span[title^="span"]{
+				text-decoration: overline;
+			}
+			/* 以span结尾 */
+			span[title$="span"]{
+				text-decoration: overline;
+			}
+			/* 包含span */
+			span[title*="span"]{
+				text-decoration: overline;
+			}
+			
+			/* 伪元素选择器 */
+			/* 第一个字 */
+			p::first-letter{
+				color:red;
+			}
+			/* 第一行 */
+			p::first-line{
+				color:red;
+			}
+			/* 选中的 */
+			p::selection{
+				color: pink;
+			}
+			span::before{
+				content: "前"
+			}
+			p::after{
+				content: "后"
+			}
+		</style>
+	</head>
+	<body>
+		<div>div1</div>
+		<div class="red">div2</div>
+		<div class="nav">
+			<div>
+				<span title="span1">孙span</span>
+			</div>
+			<span title="span2">子span1</span>
+			<span>子span2</span>
+		</div>
+		<span>span</span>
+		<p>p1</p>
+		<p>p2</p>
+		<p>p3</p>
+		<h1>h1</h1>
+	</body>
+</html>

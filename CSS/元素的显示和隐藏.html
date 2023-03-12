@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div {
+				width: 200px;
+				height: 200px;
+				background-color: beige;
+			}
+			div:first-child {
+				background-color: antiquewhite;
+				/* display: none; 隐藏元素,不占位置 */
+				/* visibility: hidden; 隐藏元素,占位置 */
+				/* visibility: visible; 显示 */
+			}
+			div:last-of-type {
+				background-color: aquamarine;
+			}
+			.xs {
+				line-height: 200px;
+				text-align: center;
+				position: relative;
+			}
+			.xs img {
+				position: absolute;
+				left: 200px;
+				top: 0;
+				display: none;
+			}
+			.xs:hover img {
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+		<div></div>
+		<div class="xs">
+			显示图片
+			<img src="https://img10.360buyimg.com/ddimg/jfs/t1/110221/27/17847/203246/6146c869Ecb0e7501/0e4c516567418621.jpg" alt="">
+		</div>
+	</body>
+</html>

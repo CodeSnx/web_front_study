@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.container{
+				margin: 100px;
+				/* 相对定位 */
+				position: relative;
+			}
+			input{
+				border: 1px solid #999;
+				outline: 0;
+				width: 140px;
+				height: 30px;
+				line-height: 30px;
+				/* 文字缩进 */
+				text-indent: 36px;
+				/* 过渡效果 */
+				transition: all .3s;
+				border-radius: 5px;
+			}
+			span.title{
+				/* 绝对定位 */
+				position: absolute;
+				line-height: 30px;
+				height: 30px;
+				left: 2px;
+				top: 2px;
+				transition: all .3s;
+			}
+			input:focus,input:hover{
+				text-indent: 2px;
+			}
+			input:focus + span.title , input:hover + span.title{
+				transform: translateX(-120%);
+			}
+			input:valid ~ label::after{
+				content: "邮箱输入正确";
+			}
+			input:invalid ~ label::after{
+				content: "邮箱输入错误";
+			}
+			input:valid{
+				border: 1px solid green;
+			}
+			input:invalid{
+				border: 1px solid red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<input type="email" name="" id="mail" required placeholder="输入邮箱">
+			<span class="title">邮箱</span>
+			<label for="email"></label>
+		</div>
+	</body>
+</html>

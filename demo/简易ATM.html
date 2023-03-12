@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 初始余额为100
+			var money = 100;
+			// 初始flag为true
+			var flag = true;
+			
+			// 循环
+			while (flag){
+				// 定义索引index，获取输入值
+				var index = prompt('请输入您要的操作：\n 1.存钱 \n 2.取钱 \n 3.显示余额 \n 4.退出');
+				// 判断
+				switch (index){
+					/**
+					 * 存钱
+					 * 输入存的金额
+					 * 原有存款加上新增金额
+					 * 弹框显示当前存款
+					 */
+					case '1':
+						var addMoney = parseFloat(prompt('请输入您要存的金额：'));
+						money += addMoney;
+						alert('您当前存款为：' + money);
+						break;
+					/**
+					 * 取钱
+					 * 输入取钱金额
+					 * 判断所取金额是否小于存款
+					 * 小于：存款减去所取金额，并提示成功和显示余额
+					 * 大于：提示当前余额不足
+					 */
+					case '2':
+						var subMoney = parseFloat(prompt('请输入您要取得金额：'));
+						if (subMoney <= money){
+							money -= subMoney;
+							alert('取款成功，当前余额：' + money);
+						}else {
+							alert('当前余额不足');
+						}
+						break;
+					// 弹框显示当前余额
+					case '3':
+						alert('当前余额：' + money);
+						break;
+					// 给flag赋值false，停止循环即退出
+					case '4':
+						flag = false;
+						break;
+					// 输入其它提示输入错误
+					default:
+						alert('输入错误');
+				}
+			}
+		</script>
+	</body>
+</html>

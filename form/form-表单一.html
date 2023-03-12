@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.container{
+				max-width: 400px;
+				margin: 20px auto;
+			}
+			input,select,textarea{
+				width: 240px;
+				margin: 10px 0;
+				border: 1px solid #999;
+				padding: .5em 1em;
+			}
+			label{
+				color: #999;
+				margin-left: 10px;
+			}
+			/* :required必填 */
+			input:required,textarea:required{
+				border-right: 3px solid #aa0088;
+			}
+			/* :optional选填 */
+			input:optional,select:optional{
+				border-right: 3px solid #999;
+			}
+			/* ::after该标签后 */
+			input:required + label::after{
+				content: "(必填)";
+			}
+			input:optional + label::after{
+				content: "(选填)";
+			}
+			/* :focus该标签选中 */
+			input:focus,select:focus,textarea:focus{
+				/* 取消轮廓样式 */
+				outline: 0;
+				/* 水平偏移量 垂直偏移量 模糊度 扩展 颜色 */
+				box-shadow: 0 0 3px 1px #aa0088;
+			}
+			input[type="submit"]{
+				background-color: #c0a;
+				border: 2px solid #aa0088;
+				padding: 10px 0;
+				color: #fff;
+			}
+			input[type="submit"]:hover{
+				background-color: #aa0088;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<form action="#">
+				<input type="name" name="name" id="username" required><label for="username">名称</label>
+				<input type="email" name="mail" id="mail" required><label for="mail">邮箱</label>
+				<input type="tel" name="phone" id="phone"><label for="phone">手机</label>
+				<input type="url" name="url" id="Url"><label for="Url">网址</label>
+				
+				<select name="#" id="">
+					<option value="1">一</option>
+					<option value="2">二</option>
+					<option value="3">三</option>
+					<option value="4">四</option>
+				</select>
+				
+				<textarea name="#" id="" cols="30" rows="10" placeholder="留言(必填)" required></textarea>
+				<input type="submit" name="" id="" value="提交表单">
+			</form>
+		</div>
+	</body>
+</html>

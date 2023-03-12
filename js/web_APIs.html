@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#content {
+				width: 100px;
+				height: 50px;
+				background-color: antiquewhite;
+			}
+			.add {
+				width: 100px;
+				height: 100px;
+				background-color: aqua;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="home">
+			
+		</div>
+		<ul class="lis">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<button class="btn" type="button">点击</button>
+		<div id="content">
+			显示内容
+		</div>
+		<button id="image">切换图片</button>
+		<img src="https://hugp.top/images/pic.png" alt="">
+		<input type="text">
+		<div class="x-id" data-id="1"></div>
+
+		
+		<script>
+			// 根据id获取标签
+			let home = document.getElementById('home')
+			console.log(home)
+			console.dir(home)
+			let lis = document.getElementsByTagName('li')
+			console.log(lis);
+			// 获取某些元素集合
+			let names = document.getElementsByClassName('lis')
+			// 获取指定选择器的第一个元素对象
+			let query1 = document.querySelector("div")
+			let query2 = document.querySelector(".lis")
+			let query3 = document.querySelector("#home")
+			// 获取指定选择器的所有元素
+			let querys = document.querySelectorAll("li")
+			// 获取body标签
+			let ibody = document.body
+			console.log(ibody)
+			// 获取html元素
+			let ihtml = document.documentElement
+			console.log(ihtml)
+			
+			// 事件
+			// 事件源
+			let btn = document.querySelector('.btn')
+			// 事件类型 事件处理程序
+			btn.onclick = function() {
+				alert('点击了')
+			}
+			// 修改元素内容 
+			// innerText
+			const content = document.querySelector('#content')
+			btn.onclick = function() {
+				content.innerText = '哈哈哈'
+			}
+			// innerHTML
+			console.log(content.innerHTML)
+			// 修改图片信息
+			const image = document.querySelector('#image')
+			const imgs = document.querySelector('img')
+			image.onclick = function() {
+				imgs.src = 'https://i.328888.xyz/2023/01/31/83V8c.jpeg'
+				// 修改样式属性
+				imgs.style.width = '300px'
+			}
+			const li = document.querySelector('li')
+			// 通过类名修改样式
+			li.className = 'content'
+			// 添加类名,已有覆盖,没有添加
+			li.classList = 'add'
+			
+			// 添加一个类名
+			// li.classList.add('')
+			// 移除一个类名
+			// li.classList.remove('')
+			// 切换一个类名
+			// li.classList.toggle('')
+			
+			const search = document.querySelector('input')
+			// 获取焦点
+			search.onfocus = function() {
+				
+			}
+			// 失去焦点
+			search.onblur = function() {
+				
+			}
+			
+			// 自定义属性
+			const xId = document.querySelector('.x-id')
+			document.write(xId.dataset.id)
+			
+			// 定时器
+			// 添加
+			// 返回的是id
+			// 第一种
+			// const n = setInterval(function() {
+			// 	console.log('1');
+			// },1000)
+			// 第二种
+			function timer() {
+				console.log('1');
+			}
+			// const n = setInterval(timer,1000)
+			// 或
+			const n = setInterval('timer()',1000)
+			
+			// 销毁
+			clearInterval(n)
+			
+			// 事件对象-event
+			xId.addEventListener('click', function(event) {
+				// 常用属性
+				// 当前事件类型
+				event.type
+				// 获取光标位置-相对于浏览器窗口左上角
+				event.clientX
+				event.clientY
+				// 获取光标位置-相对于当前dom元素左上角
+				event.offsetX
+				event.offsetY
+				// 用户按下键盘键的值
+				event.key
+			})
+			
+			str.trim() //去除左右空格
+			
+			// 事件捕获 从大到小
+			// 事件冒泡 从小到大
+			// 阻止事件流传播(阻止事件冒泡/事件捕获)
+			str.stopPropagation()
+			// 阻止默认行为
+			function fun(e) {
+				alert('111')
+				e.preventDefault()
+			}
+			// 事件监听
+			str.addEventListener('click', fun)
+			// 事件解绑
+			str.removeEventListener('click',fun)
+			
+			// 鼠标经过/离开
+			// mouseover/mouseout 会有冒泡效果
+			// mouseenter/mouseleave 没有冒泡效果(推荐)
+			
+			// 事件委托
+			// 给父元素添加事件,可以通过事件对象获取事件子元素
+			// e.target
+			// e.target.tagName
+			
+			// 页面资源加载完毕再执行
+			window.addEventListener('load', function() {
+				
+			})
+			// dom节点加载完毕就可执行
+			window.addEventListener('DOMContentLoaded', function() {
+				
+			})
+			
+			// 滚动事件
+			window.addEventListener('scroll', function() {
+				// 滚动距离
+				// 距头部
+				window.scrollTop
+				// 距左边
+				window.scrollLeft
+				// window.scrollTo(x,y)
+			})
+			
+			// 获取html元素
+			document.documentElement
+			
+			// 页面尺寸事件
+			window.addEventListener('resize', function() {
+				// 获取元素可见部分的宽高(不包含宽高、滚动条、margin)
+				window.clientWidth
+				window.clientHeight
+				// 包含自身设置的宽高、border等
+				window.offsetWidth
+				window.offsetHeight	
+				// 获取位置(带有定位父元素,若无,则以文档左上角为准) 只读属性
+				window.offsetTop
+				window.offsetLeft
+			})
+			
+			// 返回最近一级的父亲节点
+			home.parentNode
+			// 获取所有子节点
+			home.children
+			// 下一个兄弟节点
+			home.nextElementSibling
+			// 上一个兄弟节点
+			home.previousElementSibling
+			
+			//创建节点
+			const div = document.createElement('div')
+			// 追加节点 插入父元素最后一个子元素后面
+			home.appendChild(div)
+			// 插入父元素某个子元素前面(插入的元素, 哪个元素的前面	)
+			home.insertBefore(div, div)
+			
+			// 克隆节点 true-包含后代子节点一起克隆 false-不包含后代子节点 默认false
+			div.cloneNode(true)
+			
+			// 删除节点
+			// 父元素.removeChild(子节点)
+			div.removeChild(div)
+			
+			// 移动端事件
+			// 触摸
+			div.addEventListener('touchstart', function() {
+				
+			})
+			// 离开
+			div.addEventListener('touchend', function() {
+				
+			})
+			// 移动
+			div.addEventListener('touchmove', function() {
+				
+			})
+			
+			// 延迟函数
+			let timer = setTimeout(function() {
+				
+			},3000)
+			// 清除延迟函数
+			clearTimeout(timer)
+			
+			// location对象
+			// 当前页面的地址
+			location.href
+			// 当前地址的hash值,#后
+			location.hash
+			// 刷新页面
+			location.reload()
+			// 强制刷新
+			location.reload(true)
+			// 获取当前地址携带的参数 ?后面
+			location.search
+			// navigator对象 浏览器的信息
+			// history对象 管理历史记录
+			// 后退
+			history.back()
+			// 前进
+			history.forward()
+			// 前进或后退几个页面 1  -1
+			history.go(-1)
+			// 本地存储
+			// localStorage 永久存在本地,除非主动删除 同一浏览器多页面共享,键值对的形式存储
+			// 存
+			// localStorage.setItem(key, value)
+			// 取
+			// localStorage.getItem(key)
+			// 删
+			// localStorage.removeItem(key)
+			// sessionStorage 使用方法和localStorage类似,关闭浏览器页面销毁
+			// 存储复杂类型
+			const obj = {
+				name: 'w',
+				age: 18
+			}
+			// 存
+			// JSON.stringify(obj) 将复杂类型转换成json
+			localStorage.setItem('obj',JSON.stringify(obj))
+			// 取
+			// JSON.parse() json字符串转对象
+			JSON.parse(localStorage.getItem('obj'))
+			
+			// 正则表达式
+			const str = "我在学前端,前端使我快乐"
+			// 1.定义规则
+			const reg = /前端/
+			//2.是否匹配
+			// 返回true/false
+			reg.test(str)
+			// 返回数组
+			reg.exec(str)
+			// 元字符
+			// [a-z]
+			// 边界值(表示位置,开头和结尾)
+			// 开头
+			// /^1/ 以1开头
+			// 结尾
+			// /1$/ 以1结尾
+			// 精确匹配
+			// /^1$/
+			// 量词(重复次数)
+			// * 0次或更多次
+			// + 一次或更多次
+			// ? 0次或1次
+			// {n} n次
+			// {n,} n次或更多次
+			// {n,m} n到m次
+			// 字符类(比如\d 表示0~9)
+			// [] 包含
+			// [^] 取反
+			// . 除了换行字符之外的所有字符
+			// 预定义
+			\d 相当于 [0-9]
+			\D 相当于 [^0-9]
+			\w 相当于 [a-zA-Z0-9-_]
+			\W 相当于 [^a-zA-Z0-9-_]
+			\s匹配空格 相当于 [\t\r\n\v\f]
+			\s匹配非空格的字符 相当于 [^\t\r\n\v\f]
+			// 修饰符
+			// i 不区分大小写 //i
+			// g 匹配所有满足的结果 //g
+			// replace 替换
+			// str.replace(//,'')
+			
+			// 作用域链本质是底层的变量查找机制
+			// 会优先在当前作用域查找,若没查找到,将会依次向上一级作用域查找直至全局作用域
+			
+			// 垃圾回收机制 标记清除法 从根部出发定时扫描内存中的对象,无法到达的对象被标记不再使用,稍后进行回收
+			
+			// 闭包
+			// 内层函数 + 外层函数的变量
+			// 外部可以访问使用函数内部的变量
+			// 闭包存在内存泄漏的风险
+			
+			// 变量提升
+			// 声明提升到当前作用域最前面,赋值不提升
+			
+			// 动态参数,arguments,伪数组
+			// 剩余参数,如...arr,真数组
+			
+			// 展开运算符,如...arr
+			
+			// 箭头函数
+			// const fn = (形参) => {} 形参数量为1时可以省略小括号
+			// 写在一行时可以省略大括号和return
+			// 返回一个对象
+			const fn = (uname) => ({name: uname})
+			// 箭头函数this指向在上一层作用域链
+			
+			// 数组解构
+			arr = [1,2,3]
+			const [a,b,c] = arr
+			
+			// 对象解构
+			obj = {
+				uname: 'aa',
+				age: 18
+			}
+			// 对象解构变量名和属性名必须一一对应
+			const {uname, age} = obj
+			
+			// 遍历数组
+			// arr.forEach(function(数组元素,索引) {
+				
+			// })
+			
+			// filter方法 筛选符合条件的元素,并返回筛选之后元素的数组
+			arr.filter(function (item,index){
+				return
+			})
+			
+			// 创建对象
+			const o = {
+				
+			}
+			
+			const ob = new Object({})
+			
+			// 构造函数
+			function Pig(uname, age) {
+				this.uname = uname
+				this.age = age
+			}
+			
+			const p = new Pig('佩奇', 18)
+			
+			// Object.keys(p) 返回[uname, age]
+			// Object.values(p) 返回['佩奇', 18]
+			
+			// 拷贝对象
+			const p1 = {}
+			Object.assign(p1, p)
+			
+			// reduce 返回累计处理的结果
+			// arr.reduce(function(上一次值, 当前值){}, 起始值)
+			
+			// find() 查找元素 返回查找出的元素, 查找不到时返回undefined
+			// arr.find(function(item) {
+			// 	return item === ''
+			// })
+			// every() 查找每个元素是否满足条件, 返回bool值
+			// some() 查找是否有元素满足条件, 返回bool值
+			arr.every(item => {
+				return item === ''
+			})
+			
+			// 伪数组转换成真数组 Array.from()
+			
+			// 字符串转数组
+			const str = 'pinc, red'
+			const arr = str.split(',')
+			// 字符串的截取(开始索引号,结束索引号) 包头不包尾
+			str.substring(5)
+			// 检查字符串是否以某字符串开头(字符串, 索引)
+			str.startsWith('pinc')
+			// 判断字符串是否包含某字符串(字符串),区分大小写
+			str.includes('re')
+			
+			// Number
+			// 保留小数toFixed()
+			let num = 111111.111111
+			num.toFixed(2)
+			
+			// 原型对象
+			Pig.prototype
+			// 构造函数 constructor
+			// 对象原型__proto__ 指向对应构造函数原型对象prototype
+			// 对象原型prototype 里的constructor 指向构造函数
+			
+			// 浅拷贝
+			const o = {...obj}
+			const a = {...arr}
+			Object.assign(o, obj)
+			arr.concat(a)
+			
+			// 深拷贝 			
+			const oldObj = {
+				a: 1,
+				b: '2',
+				c: {
+					d: 3,
+					e: 4
+				},
+				f: ['5',6,'g']
+			}
+			const newObj = {}
+			
+			function deepCopy(newObj, oldObj) {
+				for(k in oldObj) {
+					if (oldObj[k] instanceof Array) {
+						newObj[k] = []
+						deepCopy(newObj[k], oldObj[k])
+					} else if (oldObj[k] instanceof Object) {
+						newObj[k] = {}
+						deepCopy(newObj[k], oldObj[k])
+					} else {
+						newObj[k] = oldObj[k]
+					}
+				}
+			}
+			deepCopy()
+			console.log(newObj);
+			
+			newObj = JSON.parse(JSON.stringify(oldObj))
+			
+			// throw 抛异常
+			throw '报错'
+			throw new Error('报错')
+			
+			// try catch 捕获异常
+			try {
+				
+			}catch (e) {
+				e.message('')
+				throw new Error('')
+			}
+			// 不管程序对错,一定会执行
+			finally {
+				
+			}
+			
+			debugger //断点调试
+			
+			'use strict' //严格模式,写在script最前面
+			
+			
+			// 改变this的指向
+			// 调用函数
+			// fun.call(this的指向,...实参)	
+			// fun.apply(this的指向, [...实参])
+			
+			// 不调用函数
+			// fun.bind(this指向)
+			
+			// 防抖函数
+			function debounce(fn, time) {
+				let timer
+				return function() {
+					if (timer) clearTimeout(timer)	
+					timer = setTimeout(function() {
+						fn()
+					}, time)
+				}
+			}
+			
+			// 节流函数
+			function throttle(fn, time) {
+				let timer
+				return function() {
+					if(!timer) {
+						timer = setTimeout(function() {
+							fn()
+							timer = null
+						},time)
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

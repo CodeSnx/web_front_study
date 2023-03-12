@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			.wrapper h1 {
+				margin: 50px auto;
+				text-align: center;
+			}
+			.wrapper {
+				width: 900px;
+				margin: 0 auto;
+			}
+			.wrapper table {
+				margin: 0 auto;
+				border-collapse: collapse;
+			}
+			th,td {
+				border: 1px solid #ccc;
+				padding: 5px 10px;
+			}
+			.wrapper table th {
+				background-color: skyblue;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<form action="#" autocomplete="off">
+				<h1>新增学员</h1>
+				<label for="uname">姓名: </label>
+				<input type="text" name="uname">
+				<label for="age">年龄: </label>
+				<input type="number">
+				<label for="sex">性别: </label>
+				<select name="sex" id="">
+					<option value="男">男</option>
+					<option value="女">女</option>
+				</select>
+				<label for="salary">薪资: </label>
+				<input type="number" name="salary">
+				<label for="city">就业城市: </label>
+				<select name="city" id="">
+					<option value="北京">北京</option>
+					<option value="上海">上海</option>
+					<option value="杭州">杭州</option>
+					<option value="深圳">深圳</option>
+					<option value="南京">南京</option>
+				</select>
+				<button>录入</button>
+			</form>
+			<div>
+				<h1>就业榜</h1>
+				<table>
+					<tr>
+						<th>学号</th>
+						<th>姓名</th>
+						<th>年龄</th>
+						<th>性别</th>
+						<th>薪资</th>
+						<th>就业城市</th>
+						<th>操作</th>
+					</tr>
+					<tr>
+						<td>1</td>
+						<td>1</td>
+						<td>1</td>
+						<td>1</td>
+						<td>1</td>
+						<td>1</td>
+						<td>1</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</body>
+</html>

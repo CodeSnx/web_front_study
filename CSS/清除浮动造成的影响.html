@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.father {
+				width: 200px;
+				background-color: azure;
+				/* 清除浮动2 */
+				/* overflow: hidden; */
+			}
+			.son1{
+				width: 50px;
+				height: 50px;
+				background-color: beige;
+				float: left;
+			}
+			.son2 {
+				width: 50px;
+				height: 50px;
+				background-color: bisque;
+				float: left;
+			}
+			.mather {
+				width: 150px;
+				height: 100px;
+				background-color: crimson;
+			}
+			/* 清除浮动1 */
+			/* .clear {
+				clear: both;
+			} */
+			/* 清除浮动3 */
+			/* .clearfix::after {
+				display: block;
+				content: ".";
+				height: 0;
+				visibility: hidden;
+				clear: both;
+			} */
+			/* 清除浮动4 */
+			.clearfix:before,.clearfix:after {
+				content: "";
+				display: table;
+			}
+			.clearfix:after {
+				clear: both;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="father clearfix">
+			<div class="son1"></div>
+			<div class="son2"></div>
+			<!-- <div class="clear"></div> -->
+		</div>
+		<div class="mather">
+			
+		</div>
+	</body>
+</html>

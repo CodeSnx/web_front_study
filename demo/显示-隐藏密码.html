@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			a {
+				text-decoration: none;
+				color: #999;
+			}
+			.myform {
+				width: 370px;
+				margin: 100px auto;
+			}
+			.myform h5 {
+				text-align: center;
+				font-weight: 500;
+				font-size: 14px;
+			}
+			.myform form {
+				margin: 15px 0 10px;
+			}
+			input,button {
+				outline: none;
+				border: 0;
+			}
+			.myform input:first-child,
+			.myform .password {
+				border-bottom: 1px solid #ccc;
+				margin: 10px 0;
+				height: 30px;
+				line-height: 30px;
+			}
+			.myform input:first-child,button {
+				width: 100%;
+			}
+			.myform .password {
+				position: relative;
+			}
+			.password img {
+				position: absolute;
+				width: 17px;
+				top: 10px;
+				right: 15px;
+				color: #ccc;
+			}
+			.myform button {
+				margin: 15px 0;
+				height: 35px;
+				border-radius: 12px;
+				color: #fff;
+				background-color: lightcoral;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="myform">
+			<h5>登录</h5>
+			<form action="">
+				<input type="text" id="username" value="" placeholder="用户名/邮箱/已验证手机" />
+				<div class="password">
+					<label for="password">
+						<img src="../img/闭眼睛.png" alt="" id="btn_img">
+					</label>
+					<input type="password" name="" id="password" placeholder="请输入密码"/>
+				</div>
+				<button>登录</button>
+			</form>
+			<div>
+				<a href="">短信验证码登录</a>
+				<a href="">忘记密码</a>
+			</div>
+			<div>其他登录方式</div>
+		</div>
+		<script>
+			const btn_img = document.querySelector('#btn_img')
+			const password = document.querySelector('#password')
+			let flag = true
+			btn_img.onclick = function() {
+				if(flag) {
+					this.src = '../img/发现.png'
+					password.type = 'text'
+					flag = false
+				}else {
+					this.src = '../img/闭眼睛.png'
+					password.type = 'password'
+					flag = true
+				}
+			}
+		</script>
+	</body>
+</html>

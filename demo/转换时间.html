@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			let time = +prompt('请输入需要转换的秒数')
+			let second = time % 60
+			let minutes = parseInt(time / 60 % 60)
+			let hour = parseInt(time / 60 / 60)
+			document.write(`${hour}-${minutes}-${second}`)
+		</script>
+	</body>
+</html>

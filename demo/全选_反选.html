@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				/* 盒子模型 */
+				box-sizing: border-box;
+			}
+			.box {
+				margin: 100px;
+			}
+			.box table {
+				/* 边框合并 */
+				border-collapse: collapse;
+			}
+			.box th {
+				background-color: cornflowerblue;
+				color: white;
+			}
+			.box td {
+				border: 1px solid #999;
+				padding: 10px 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 盒子 -->
+		<div class="box">
+			<!-- 表格 -->
+			<table>
+				<tr>
+					<th><input type="checkbox" id="all">全选</th>
+					<th>商品</th>
+					<th>商家</th>
+					<th>价格</th>
+				</tr>
+				<tr>
+					<td><input type="checkbox" class="commodity"></td>
+					<td>小米手机</td>
+					<td>小米</td>
+					<td>￥1999</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" class="commodity"></td>
+					<td>小米净水器</td>
+					<td>小米</td>
+					<td>￥4999</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" class="commodity"></td>
+					<td>小米电视</td>
+					<td>小米</td>
+					<td>￥5999</td>
+				</tr>
+			</table>
+		</div>
+		<script>
+			// 获取dom节点
+			const all = document.querySelector('.box #all')
+			const trs = document.querySelectorAll('.box .commodity')
+			
+			// 全选按钮监听事件
+			all.addEventListener('click', function() {
+				// 循环遍历 每一个元素的checked值都保持和全选按钮一致
+				for(let i = 0; i < trs.length; i++){
+					trs[i].checked = this.checked
+				}
+			})
+			// 遍历
+			for(let i = 0; i < trs.length; i++){
+				// 每个按钮监听点击事件
+				trs[i].addEventListener('click', function() {
+					// 当选择的按钮数量等于所有的按钮数量时，全选按钮赋值true，反之false
+					all.checked = document.querySelectorAll('.box .commodity:checked').length === trs.length
+				})
+			}
+		</script>
+	</body>
+</html>

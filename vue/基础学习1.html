@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" src="js/vue.js"></script>
+		<style>
+			.demo {
+				width: 100px;
+				height: 100px;
+				background-color: aquamarine;
+			}
+			.box1,ul {
+				width: 200px;
+				height: 200px;
+				background-color: antiquewhite;
+			}
+			.box2,li {
+				width: 100px;
+				height: 100px;
+				background-color: aqua;
+			}
+			ul {
+				overflow: auto;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="root">
+			<h1>插值语法</h1>
+			hello,{{name}}
+			<h1>指令语法</h1>
+			<a v-bind:href="url">吴苏苏</a>
+			<h2>简写</h2>
+			<a :href="url">吴苏苏</a>
+			<h1>数据绑定</h1>
+			单向数据绑定：<input type="text" v-bind:value="name">
+			双向向数据绑定：<input type="text" v-model:value="name">
+			<h2>简写</h2>
+			双向向数据绑定：<input type="text" v-model="name">
+			<!-- v-model只能用在表单类元素（输入类元素） -->
+			
+			<button v-on:click="showInfo">点击提示信息!</button>
+			<button @click="showInfo1">点击提示信息!!</button>
+			<button @click="showInfo2(22,$event)">点击提示信息!!!</button>
+			<!-- 事件修饰符 -->
+			<!-- .prevent 阻止默认事件 -->
+			<a href="https://snx.icu" @click.prevent="showInfo">跳转网页</a>
+			<!-- .stop 阻止事件冒泡 -->
+			<div class="demo" @click="showInfo">
+				<button @click.stop="showInfo">事件冒泡</button>
+			</div>
+			<!-- .once 事件只触发一次 -->
+			<button @click.once="showInfo">once</button>
+			<!-- 使用事件的捕获模式 原先是按照冒泡模式由内到外执行 使用捕获模式后在捕获阶段就开始执行-->
+			<div class="box1" @click.capture="showInfo1(1)">
+				box1
+				<div class="box2" @click="showInfo1(2)">
+					box2
+				</div>
+			</div>
+			<!-- .self 只有操作的是当前元素时才促发事件 -->
+			<div class="demo" @click.self="showInfo1(1)">
+				<button @click="showInfo1(2)">self</button>
+			</div>
+			<!-- .passive 默认的事件立即执行,无需等待事件回调执行完毕 -->
+			<ul @wheel.passive="demo">
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			Vue.config.productionTip = false;
+			// 创建vue实例
+			const vm = new Vue({
+				// 第一种写法
+				el: '#root', //el用于指定当前vue实例为哪个容器服务，值通常为css选择器字符串
+				// 第一种写法：对象式
+				data: {  //data中用于存储数据，数据供el所指定的容器使用
+					name: 'vue',
+					url: 'https://snx.icu/'
+				},
+				methods: {
+					showInfo(){
+						alert('提示1')
+					},
+					showInfo1(event){
+						console.log(event);
+						alert('提示2')
+					},
+					showInfo2(num,event){
+						console.log(num);
+						console.log(event);
+						alert('提示3')
+					},
+					demo(){
+						for(let i = 0; i < 100000; i++) {
+							console.log('#');
+						}
+					}
+				}
+			})
+			// 第二种写法
+			// vm.$mount('#root');
+			
+			// 第二种写法：函数式
+			// data:function(){
+			//或 data(){
+			// 	return{
+			// 		name: '吴苏苏';
+			// 	}
+			// }
+		</script>
+	</body>
+</html>

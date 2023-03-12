@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 定义字符串,用于汇总
+			var str = "";
+			// 外层循环,共九行
+			for(var i = 1; i <= 9; i++){
+				// 内层循环,一列至九列依次递增
+				for(var j = 1; j <= i; j++){
+					// 汇总到字符串str中
+					str += j + " × " + i + " = " + j * i + "\t";
+				}
+				// 换行
+				str += "\n"
+			}
+			// 输出
+			console.log(str)
+		</script>
+	</body>
+</html>

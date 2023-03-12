@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" src="js/vue.js"></script>
+	</head>
+	<body>
+		<div id="root">
+			<input @keyup.enter="showInfo"/>
+			<!-- 数组写法 -->
+			<input type="text" id="" v-model="firstName" :class="arr" />
+			<!-- 对象写法 -->
+			<input type="text" id="" v-model="firstName" :class="obj" />
+			<!-- 动态绑定class样式 -->
+			<input type="text" id="" v-model="lastName" :class='mood'/>
+			<!-- 绑定style样式 -->
+			<input type="text" id="" v-model="lastName" :style="{fontSize: fsize + 'px'}"/>
+			<input type="text" id="" v-model="lastName" :style="styleObj"/>
+			<!-- 条件渲染 -->
+			<!-- 结构还在 -->
+			<h1 v-show="false">条件渲染</h1>
+			<h1 v-show="1===1">条件渲染</h1>
+			<!-- 结构不存在 -->
+			<h1 v-if="false">条件渲染</h1>
+			<h1 v-else-if="false">条件渲染</h1>
+			<h1 v-else>条件渲染</h1>
+			姓名: {{fullname}}
+			<!-- 模板 不在页面中展示 可与v-if一起使用 不可与v-show一起使用 -->
+			<template></template>
+			
+			<!-- 列表渲染 -->
+			<!-- 遍历数组 -->
+			<ul>
+				<li v-for='p in persons' :key='p.id'>
+					{{p.name}}-{{p.age}}
+				</li>
+			</ul>
+			<!-- 或 -->
+			<ul>
+				<li v-for='(p,index) in persons' :key='index'>
+					{{p.name}}-{{p.age}}
+				</li>
+			</ul>
+			
+			<!-- 遍历对象 -->
+			<ul>
+				<li v-for='(value,key) in lastName' :key='key'>
+					{{key}}-{{value}}
+				</li>
+			</ul>
+			
+			<!-- 遍历字符串 -->
+			<ul>
+				<li v-for='(value,key) in cars' :key='key'>
+					{{key}}-{{value}}
+				</li>
+			</ul>
+		</div>
+		<script>
+			Vue.config.productionTip = false;
+			/*
+			 * 常用按键别名
+			 * 回车 -> enter
+			 * 删除 -> delete
+			 * 退出 -> esc
+			 * 换行 -> tab
+			 * 上 -> up
+			 * 下 -> down
+			 * 左 -> left
+			 * 右 -> right 
+			 */
+			const vm = new Vue({
+				el: "#root",
+				data: {
+					firstName: '吴',
+					lastName: '苏苏',
+					mood: 'a',
+					arr: ['a', 'b', 'c'],
+					obj: {
+						a: true,
+						b: false
+					},
+					fsize: 12,
+					styleObj: {
+						fontSize: '40px'
+					},
+					persons: [
+						{id: '1001', name: '张三', age: '18'},
+						{id: '1002', name: '里斯', age: '19'},
+						{id: '1003', name: '王五', age: '20'},
+					],
+					cars: {
+						name: '奥迪',
+						price: '70w',
+						color: '黑色'
+					}
+				},
+				methods: {
+					showInfo(e){
+						console.log(e.target.value);
+					},
+					getName(){
+						return this.firstName + '-' + this.lastName
+					},
+					changeMood() {
+						this.mood = 'b'
+					}
+				},
+				// 计算属性
+				computed: {
+					// fullname: {
+					// 	// 初次执行时调用，源数据改变时调用
+					// 	get() {
+					// 		return this.firstName + '-' + this.lastName
+					// 	}
+					// 	set(value) {
+					// 		const arr = value.split('-')
+					// 		this.firstName = arr[0]
+					// 		this.lastName = arr[1]
+					// 	}
+					// }
+					// 简写
+					fullname() {
+						return this.firstName + '-' + this.lastName
+					}
+				},
+				// 监视属性
+				// 第一种写法
+				watch: {
+					fullname: {
+						deep : true, //深度监测，默认false
+						immediate: true, //初始化时调用一次handler，默认false
+						handler(newValue, oldValue) {
+							
+						}
+					},
+					// 简写，当不需要deep，immediate属性时
+					// fullname(newValue, oldValue){
+
+					// }
+				},
+			})
+			
+			// 第二种写法
+			// vm.$watch('fullname', {
+			// 	immediate: true, //初始化时调用一次handler，默认false
+			// 	handler(newValue, oldValue) {
+					
+			// 	}
+			// })
+		</script>
+	</body>
+</html>

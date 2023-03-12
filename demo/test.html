@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		<script>
+			
+			const oldObj = {
+				a: 1,
+				b: '2',
+				c: {
+					d: 3,
+					e: 4
+				},
+				f: ['5',6,'g']
+			}
+			const newObj = {}
+			function deepCopy(newObj, oldObj) {
+				for(k in oldObj) {
+					if (oldObj[k] instanceof Array) {
+						newObj[k] = []
+						deepCopy(newObj[k], oldObj[k])
+					} else if (oldObj[k] instanceof Object) {
+						newObj[k] = {}
+						deepCopy(newObj[k], oldObj[k])
+					} else {
+						newObj[k] = oldObj[k]
+					}
+				}
+			}
+			deepCopy(newObj, oldObj)
+			console.log(newObj);
+			
+		</script>
+	</body>
+</html>

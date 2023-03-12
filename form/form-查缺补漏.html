@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- enctype="multipart/form-data" 当表单中有file时，应当添加，不设置只能上传文本格式，设置后可增加文件格式的多样性 -->
+		<!-- autocomplete 自动完成功能 on-是 off-否 -->
+		<!-- novalidate 不验证，直接提交表单 -->
+		<form action="" method="post" enctype="multipart/form-data" autocomplete="on" novalidate></form>
+		
+		<input type="file">
+		
+		<!-- required 当前输入字段必填 -->
+		<!-- formnovalidate 当前输入字段不验证 -->
+		<!-- placeholder 提示信息 -->
+		<!-- pattern="" 正则表达式输入语句 -->
+		<input type="text" name="" id="" required formnovalidate placeholder="请输入" pattern="">
+		
+		<!-- 输入框提示 可下拉 -->
+		<input type="text" name="" id="" list="tips">
+		<datalist id="tips">
+			<option value="一"></option>
+			<option value="二"></option>
+			<option value="三"></option>
+			<option value="四"></option>
+		</datalist>
+		
+		<!-- for="" 引号内对应id值 点击label内文字可选中对应单选按钮 -->
+		<label for="man">男</label>
+		<input type="radio" name="sex" id="man" value="1">
+		<label for="woman">女</label>
+		<input type="radio" name="sex" id="woman" value="0">
+	</body>
+</html>

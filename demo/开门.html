@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			/* 盒子 */
+			.open-door {
+				/* 背景图片 */
+				background: url('https://i.328888.xyz/2023/01/31/83V8c.jpeg') no-repeat;
+				/* 背景大小 */
+				background-size: 100%;
+				/* 盒子宽高 */
+				width: 250px;
+				height: 200px;
+				/* 外边距 */
+				margin: 100px auto;
+				/* 视距 */
+				perspective: 1000px;
+				/* 定位 */
+				position: relative;
+			}
+			/* 门盒子 */
+			.left,.right {
+				/* 定位 子绝父相 */
+				position: absolute;
+				/* 宽高 */
+				width: 50%;
+				height: 100%;
+				/* 背景颜色 */
+				background-color: rgb(215,148,153);
+				/* 动画时间 */
+				transition: all 1.5s; 
+			}
+			/* 左门 */
+			.left {
+				/* 位置 */
+				left: 0;
+				/* 旋转起点 */
+				transform-origin: left;
+			}
+			.right {
+				right: 0;
+				transform-origin: right;	
+			}
+			/* 鼠标放置盒子上打开门 */
+			.open-door:hover .left {
+				/* 旋转 */
+				transform: rotateY(-130deg);
+			}
+			.open-door:hover .right {
+				transform: rotateY(130deg);
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 盒子 -->
+		<div class="open-door">
+			<!-- 左门盒子 -->
+			<div class="left"></div>
+			<div class="right"></div>
+		</div>
+	</body>
+</html-d

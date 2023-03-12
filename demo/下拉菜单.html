@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			a {
+				text-decoration: none;
+				color: #000;
+				font-size: 14px;
+			}
+			li {
+				list-style: none;
+			}
+			.weibo {
+				width: 77px;
+				margin: 100px auto;
+				box-sizing: border-box;
+				position: relative;
+			}
+			.weibo a {
+				padding: 12px 15px 12px 18px;
+				line-height: 43px;
+			}
+			.weibo ul {
+				position: absolute;
+				display: none;
+			}
+			.weibo li {
+				border: 1px solid #FF8400;
+				border-top: 0;
+				height: 35px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="weibo">
+			<a href="">微博</a>
+			<ul>
+				<li><a href="">私信</a></li>
+				<li><a href="">评论</a></li>
+				<li><a href="">@我</a></li>
+			</ul>
+		</div>
+		<script>
+			const btn = document.querySelector('.weibo a')
+			const sty = document.querySelector('.weibo ul')
+			btn.onmouseover = function() {
+				sty.style.display = 'block'
+			}
+			btn.onmouseleave = function() {
+				sty.style.display = 'none'
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style>
+		/* 密码 */
+		#password {
+			/* 宽高 */
+			width: 370px;
+			height: 35px;
+			/* 外边距 */
+			margin: 100px auto;
+			/* 文字大小 */
+			font-size: 14px;
+		}
+		#password label,
+		#password input,
+		#password span {
+			/* 垂直居中 */
+			height: 35px;
+			line-height: 35px;
+			/* 左外边距 */
+			margin-left: 10px;
+		}
+		#password input {
+			/* 取消轮廓 */
+			outline: none;
+			/* 设置边框样式 */
+			border: 1px solid #999;
+			border-radius: 5px;
+			/* 左内边距 */
+			padding-left: 10px;
+		}
+		/* 提示信息 */
+		#password span {
+			/* 文字大小及颜色 */
+			font-size: 10px;
+			color: #999;
+		}
+	</style>
+	<body>
+		<!-- 密码 -->
+		<div id="password">
+			<label for="password">设置密码 </label>
+			<input type="password">
+			<span></span>
+		</div>
+		<script>
+			// 获取元素
+			const password = document.querySelector('#password input')
+			const password_prompt = document.querySelector('#password span')
+			// 输入框获取焦点
+			password.onfocus = function() {
+				// 提示
+				password_prompt.innerText = '6-16位字符'
+			}
+			// 输入框失去焦点
+			password.onblur = function() {
+				// 获取输入的值
+				let content = this.value
+				// 输入值为空时
+				if (content == ''){
+					// 提示
+					password_prompt.innerText = '请输入密码'
+					// 修改提示颜色
+					password_prompt.style.color = 'red'
+					// 修改文本框颜色
+					this.style.border = '1px solid red'
+				} else if (content.length < 6) {
+					password_prompt.innerText = '密码输入较短'
+					password_prompt.style.color = 'red'
+					this.style.border = '1px solid red'
+				} else if (content.length > 16) {
+					password_prompt.innerText = '密码输入较长'
+					password_prompt.style.color = 'red'
+					this.style.border = '1px solid red'
+				} else {
+					password_prompt.innerText = '您输入的正确'
+					password_prompt.style.color = 'green'
+					this.style.border = '1px solid green'
+				}
+			}
+		</script>
+	</body>
+</html>

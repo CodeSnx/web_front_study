@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			h2 {
+				text-align: center;
+			}
+			table {
+				margin: 0 auto;
+				border: 1px solid #000;
+				border-collapse: collapse;
+			}
+			th,td {
+				border: 2px solid #000;
+				padding: 5px 10px;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+			const commodity_name = '小米手机13Pro'
+			let commodity_price = 5799
+			let commodity_quantity
+			let address
+			
+			commodity_quantity = +prompt('请输入商品数量')
+			address = prompt('请输入收货地址')
+			
+			document.write(`
+				<h2>订单确认</h2>
+				<table>
+					<tr>
+						<th>商品名称</th>
+						<th>商品价格</th>
+						<th>商品数量</th>
+						<th>总价</th>
+						<th>收货地址</th>
+					</tr>
+					<tr>
+						<td>${commodity_name}</td>
+						<td>${commodity_price}</td>
+						<td>${commodity_quantity}</td>
+						<td>${commodity_price * commodity_quantity}</td>
+						<td>${address}</td>
+					</tr>
+				</table>
+			`)
+		</script>
+	</body>
+</html>

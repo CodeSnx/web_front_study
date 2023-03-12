@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.box {
+				/* 相对定位 */
+				position: relative;
+			}
+			img {
+				/* 宽高 */
+				width: 250px;
+				height: 250px;
+				/* 绝对定位 */
+				position: absolute;
+				/* 位置 */
+				left: 100px;
+				top: 100px;
+				/* 圆角 */
+				border-radius: 50%;
+				/* 动画过渡时间 */
+				transition: all 1s;
+			}
+			img:first-child {
+				/* 层级 */
+				z-index: 1;
+				/* 不是正面时隐藏 */
+				backface-visibility: hidden;
+			}
+			div:hover img {
+				/* 旋转度数 */
+				transform: rotateY(180deg);
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 盒子 -->
+		<div class="box">
+			<!-- 两张图片 -->
+			<img src="https://img2.baidu.com/it/u=2512072660,17599263&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500" alt="">
+			<img src="https://img2.baidu.com/it/u=783855986,259499916&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500" alt="">
+		</div>
+	</body>
+</html>

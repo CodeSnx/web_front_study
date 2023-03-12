@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			/* 未访问的状态 */
+			a:link{}
+			/* 鼠标移动上去的状态 */
+			a:hover{}
+			/* 鼠标选定的状态 */
+			a:active{}
+			/* 访问过后的状态 */
+			a:visited{}
+			
+			/* 第一个li标签 */
+			li:first-child{}
+			/* 最后一个li标签 */
+			li:last-child{}
+			/* 第四个li标签 */
+			li:nth-child(4){}
+			/* 所有的奇数li标签 */
+			li:nth-child(odd){}
+			li:nth-child(2n+1){}
+			/* 所有的偶数li标签 */
+			li:nth-child(even){}
+			li:nth-child(2n){}
+			/* 从后往前 */
+			li:nth-last-child(){}
+			
+			/* 目标伪类选择器 */
+			:target{color: red;}
+		</style>
+	</head>
+	<body>
+		<a href=""></a>
+		
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		
+		<a href="#一">一</a>
+		<a href="#二">二</a>
+		<p id="一">一</p>
+		<p id="二">二</p>
+	</body>
+</html>
